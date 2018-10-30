@@ -1,0 +1,31 @@
+.img-thumbnail {
+    height: 200px;
+    width: 100%;
+}
+
+.img-thumbnail-child {
+    height: 100px;
+    width: 100%;
+}
+
+.remove-image-thumbs-child:hover {
+    background-color: deepskyblue;
+    font-weight: bold;
+}
+
+.form-control-file {
+    padding-top: 8%;
+}
+
+[type=file] {
+    opacity: 0;
+    position: absolute;
+}
+
+.group-chose-file {
+    padding-top: 50%;
+}
+
+.remove-image-thumbs-child {
+    padding: 10px;
+}
