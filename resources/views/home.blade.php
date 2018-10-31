@@ -23,26 +23,22 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <form method="POST" enctype="multipart/form-data" action="{{ route('image') }}">
-            <div class="modal-body">
-                @csrf
-              <div class="row" id="conten-modal-image">
-                  <div class="col-md-2 item">
-                     <div class="group-chose-file">
-                         <input type="file" accept="image/*" name="image[]" value="" class="form-control-file"  placeholder="Chọn ảnh">
-                         <button type="button" class="btn btn-default">Chọn ảnh</button>
-                     </div>
-                  </div>
-              </div>
-            </div>
+                <div class="modal-body">
+                    @csrf
+                    <div class="row" id="conten-modal-image">
+                        <div class="col-md-2 item">
+                            <div class="group-chose-file">
+                                <input type="file" accept="image/*" name="image[]" value="" class="form-control-file" placeholder="Chọn ảnh">
+                                <button type="button" class="btn btn-default">Chọn ảnh</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="modal-footer">
-                    {{--<input id="f02" type="file" placeholder="Add profile picture" />--}}
-                    {{--<label for="f02">Add profile picture</label>--}}
-
-
                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="submit" class="btn btn-primary" id="btn-upload">Upload</button>
-            </div>
+                    <button type="submit" class="btn btn-primary" id="btn-upload">Upload</button>
+                </div>
             </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>

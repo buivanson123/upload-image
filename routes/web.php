@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/image/update', 'ImageController@update')->name('image');
-Route::get('/image/index', 'ImageController@index')->name('imageIndex');
+Route::get('/image/index', 'ImageController@index')->name('show');

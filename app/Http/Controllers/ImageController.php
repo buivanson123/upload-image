@@ -8,45 +8,40 @@ use App\Image;
 class ImageController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+	/**
+	 * Display pagination image.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$data = Image::paginate(4);
-		return $data;
+		return Image::paginate(4);
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int                      $id
-	 *
-	 * @return \Illuminate\Http\Response
+	 * Upload image and add name image to data base.
 	 */
 	public function update(Request $request) {
-		if($request->hasfile('image'))
-		{
-			foreach($request->file('image') as $file)
-			{
-				$name=$file->getClientOriginalName();
-				$file->move(public_path().'/uploads/', $name);
-				$image = new Image(['url'=>$name]);
+
+		if ($request->hasfile('image')) {
+			foreach ($request->file('image') as $file) {
+				$name = $file->getClientOriginalName();
+				$file->move(public_path() . '/uploads/', $name);
+				$image = new Image(['url' => $name]);
 				$image->save();
 			}
 			return redirect()->back();
 		}
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy($id) {
-		//
+		else{
+			return redirect()->back();
+		}
 	}
 }
